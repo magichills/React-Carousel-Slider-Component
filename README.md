@@ -1,2 +1,2 @@
-# React-Carousel-Component
-React Carousel Component
+# React Carousel Component
+## Magic Hills

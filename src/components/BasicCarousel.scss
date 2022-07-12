@@ -1,0 +1,32 @@
+.carousel-container {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.icon {
+    position: absolute;
+    top: 50%;
+    font-size: 3rem;
+    color: #000;
+    user-select: none;
+    cursor: pointer;
+    z-index: 10;
+    &.left-arrow{
+        left: 32px;
+    };
+    &.right-arrow{
+        right: 32px;
+    };
+}
+
+.slide {
+    opacity: 0;
+    transition-duration: 1s ease;
+    &.active {
+        opacity: 1;
+        transition-duration: 1s;
+        transform: scale(1.08);
+    }
+}
