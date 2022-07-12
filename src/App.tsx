@@ -4,8 +4,8 @@ import BasicCarousel from './components/BasicCarousel';
 function App() {
   const images = [
     {
-      src: './JitOBuff.png',
-      alt: 'A picture of a cat',
+      src: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
+      alt: 'landscape',
     },
     {
       src: 'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
@@ -21,7 +21,8 @@ function App() {
     },
   ];
   return (
-    <div style={{width: '400px', height: '400px', margin: '0 auto'}}>
+    <div style={{width: '100%', margin: '0 auto'}}>
+    
       <BasicCarousel images={images}/>
     </div>
   );

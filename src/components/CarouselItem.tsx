@@ -7,7 +7,7 @@ type ItemProps = {
 }
 function CarouselItem({src, alt} : ItemProps) {
   return (
-    <img src={src} alt={alt} className="carousel-img" />
+    <img src={src} alt={alt} className="carousel-img" draggable={false} />
   )
 }
 

@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, Fragment, ReactText } from "react";
 import "./BasicCarousel.scss";
 import CarouselItem from "./CarouselItem";
-import { FaArrowAltCircleLeft, FaArrowAltCircleRight } from "react-icons/fa";
+import { BiLeftArrowAlt, BiRightArrowAlt } from "react-icons/bi";
+import { FiCircle } from "react-icons/fi";
 type CarouselItem = {
   src: string,
   alt: string,
@@ -23,16 +24,25 @@ const BasicCarousel = ({images} : CarouselProps) => {
   const handleNextSlide = () => {
     setImageIdx(imageIdx === length - 1 ? 0 : imageIdx + 1);
   }
+  const handleIndicatorClick = (idx: number) => {
+    setImageIdx(idx);
+  }
   return (
     <div className="carousel-container">
-      <FaArrowAltCircleLeft className="icon left-arrow" onClick={handlePrevSlide}/>
-      <FaArrowAltCircleRight className="icon right-arrow" onClick={handleNextSlide}/>
+      <BiLeftArrowAlt className="icon left-arrow" onClick={handlePrevSlide}/>
+      <BiRightArrowAlt className="icon right-arrow" onClick={handleNextSlide}/>
+      <div className="indicator-container">
+        {images.map((image, index) => {
+          return (
+            <FiCircle className={index === imageIdx ? "icon indicator active" : "icon indicator"} key={index} onClick={() => handleIndicatorClick(index)}/>
+          )
+        })}
+      </div>
       {images.map((image, index) => {
         return (
-          <div className={index === imageIdx ? 'slide active' : 'slide'}
-            key={index}>
-            {index === imageIdx && <CarouselItem src={image.src} alt={image.alt}/>}
-          </div>
+            <div className={index === imageIdx ? "slide active" : "slide"} key={index}>
+              {index === imageIdx && <CarouselItem src={image.src} alt={image.alt}/>}
+            </div>
         )
     })}
     </div>
