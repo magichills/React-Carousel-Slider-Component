@@ -15,9 +15,10 @@ type CarouselProps = {
   startIndex?: number,
   autoplay?: boolean,
   autoplayDuration?: number,
+  infinite?: boolean,
 };
 
-const Carousel = ({images, indicators=false, indicatorType='circle', indicatorStyle, startIndex=0, autoplay=false, autoplayDuration=2} : CarouselProps) => {
+const Carousel = ({images, indicators=false, indicatorType='circle', indicatorStyle, startIndex=0, autoplay=false, autoplayDuration=2, infinite=true} : CarouselProps) => {
   const [imageIdx, setImageIdx] = useState(startIndex);
   const length = images.length;
 
@@ -40,10 +41,12 @@ const Carousel = ({images, indicators=false, indicatorType='circle', indicatorSt
   if (startIndex >= length) setImageIdx(0);
 
   const handlePrevSlide = ():void => {
-    setImageIdx(imageIdx === 0 ? length - 1 : imageIdx - 1);
+    if (infinite) setImageIdx(imageIdx === 0 ? length - 1 : imageIdx - 1);
+    else setImageIdx(imageIdx === 0 ? 0 : imageIdx - 1);
   }
   const handleNextSlide = ():void => {
-    setImageIdx(imageIdx === length - 1 ? 0 : imageIdx + 1);
+    if (infinite) setImageIdx(imageIdx === length - 1 ? 0 : imageIdx + 1);
+    else setImageIdx(imageIdx === length - 1 ? length - 1 : imageIdx + 1);
   }
   const handleIndicatorClick = (idx: number) => {
     setImageIdx(idx);

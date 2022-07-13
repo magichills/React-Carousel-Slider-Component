@@ -34,6 +34,7 @@ function App() {
         startIndex={0}
         autoplay={false}
         autoplayDuration={2}
+        infinite={true}
       />
     </div>
   );
