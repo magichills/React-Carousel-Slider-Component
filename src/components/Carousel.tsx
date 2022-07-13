@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./BasicCarousel.scss";
+import "./Carousel.scss";
 import CarouselItem from "./CarouselItem";
 import { BiLeftArrowAlt, BiRightArrowAlt } from "react-icons/bi";
 import { FiCircle } from "react-icons/fi";
@@ -8,11 +8,15 @@ type CarouselItem = {
   alt: string,
 }
 type CarouselProps = {
-  images: Array<CarouselItem>
+  images: Array<CarouselItem>,
+  indicators?: boolean,
+  indicatorType?: 'circle' | 'number',
+  indicatorStyle?: React.CSSProperties,
+  startIndex?: number,
 };
 
-const BasicCarousel = ({images} : CarouselProps) => {
-  const [imageIdx, setImageIdx] = useState(0);
+const Carousel = ({images, indicators=false, indicatorType='circle', indicatorStyle, startIndex=0} : CarouselProps) => {
+  const [imageIdx, setImageIdx] = useState(startIndex);
   const length = images.length;
   if (!Array.isArray(images) || length === 0) {
     return null;
@@ -32,11 +36,13 @@ const BasicCarousel = ({images} : CarouselProps) => {
       <BiLeftArrowAlt className="icon left-arrow" onClick={handlePrevSlide}/>
       <BiRightArrowAlt className="icon right-arrow" onClick={handleNextSlide}/>
       <div className="indicator-container">
-        {images.map((image, index) => {
+        {indicators ? images.map((image, index) => {
           return (
-            <FiCircle className={index === imageIdx ? "icon indicator active" : "icon indicator"} key={index} onClick={() => handleIndicatorClick(index)}/>
+            indicatorType === "circle" ? 
+            <FiCircle className={index === imageIdx ? "icon indicator active" : "icon indicator"} key={index} onClick={() => handleIndicatorClick(index)} style={indicatorStyle}/>
+            : <button className={index === imageIdx ? "button active" : "button"} key={index} onClick={() => handleIndicatorClick(index)} style={indicatorStyle}>{index + 1}</button>
           )
-        })}
+        }): null}
       </div>
       {images.map((image, index) => {
         return (
@@ -49,4 +55,4 @@ const BasicCarousel = ({images} : CarouselProps) => {
   );
 }
 
-export default BasicCarousel;
+export default Carousel;
