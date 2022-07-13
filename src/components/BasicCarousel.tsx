@@ -1,4 +1,4 @@
-import React, { useState, Fragment, ReactText } from "react";
+import React, { useState } from "react";
 import "./BasicCarousel.scss";
 import CarouselItem from "./CarouselItem";
 import { BiLeftArrowAlt, BiRightArrowAlt } from "react-icons/bi";
