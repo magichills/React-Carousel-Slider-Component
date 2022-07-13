@@ -3,12 +3,13 @@ import "./Carousel.scss";
 import CarouselItem from "./CarouselItem";
 import { BiLeftArrowAlt, BiRightArrowAlt } from "react-icons/bi";
 import { FiCircle } from "react-icons/fi";
-type CarouselItem = {
+
+type CarouselItemType = {
   src: string,
   alt: string,
 }
 type CarouselProps = {
-  images: Array<CarouselItem>,
+  images: Array<CarouselItemType>,
   indicators?: boolean,
   indicatorType?: 'circle' | 'number',
   indicatorStyle?: React.CSSProperties,
@@ -16,9 +17,21 @@ type CarouselProps = {
   autoplay?: boolean,
   autoplayDuration?: number,
   infinite?: boolean,
+  slidesToShow?: number,
+  slidesToScroll?: number,
 };
 
-const Carousel = ({images, indicators=false, indicatorType='circle', indicatorStyle, startIndex=0, autoplay=false, autoplayDuration=2, infinite=true} : CarouselProps) => {
+const Carousel = ({
+    images, indicators=false,
+    indicatorType='circle',
+    indicatorStyle,
+    startIndex=0,
+    autoplay=false,
+    autoplayDuration=2,
+    infinite=true,
+    slidesToShow=1,
+    slidesToScroll=1,
+  } : CarouselProps) => {
   const [imageIdx, setImageIdx] = useState(startIndex);
   const length = images.length;
 
@@ -40,13 +53,21 @@ const Carousel = ({images, indicators=false, indicatorType='circle', indicatorSt
 
   if (startIndex >= length) setImageIdx(0);
 
+  // Both Prev and Next Slide functions have logic to wrap around the slides if infinite is true
+  // else they will stop at the end or the beginning of the slides
   const handlePrevSlide = ():void => {
-    if (infinite) setImageIdx(imageIdx === 0 ? length - 1 : imageIdx - 1);
-    else setImageIdx(imageIdx === 0 ? 0 : imageIdx - 1);
+    if (infinite) {
+      setImageIdx(imageIdx === 0 && slidesToScroll === 1 ? length - 1 : ((imageIdx - slidesToScroll) < 0 ? ((imageIdx - slidesToScroll + length) % length) : imageIdx - slidesToScroll));
+    } else {
+      setImageIdx(imageIdx === 0 || (imageIdx - slidesToScroll) < 0 ? 0 : imageIdx - slidesToScroll);
+    }
   }
   const handleNextSlide = ():void => {
-    if (infinite) setImageIdx(imageIdx === length - 1 ? 0 : imageIdx + 1);
-    else setImageIdx(imageIdx === length - 1 ? length - 1 : imageIdx + 1);
+    if (infinite) {
+      setImageIdx(imageIdx === length - 1 && slidesToScroll === 1 ? 0 : ((imageIdx + slidesToScroll) >= length ? ((imageIdx + slidesToScroll) % length) : imageIdx + slidesToScroll));
+    } else {
+      setImageIdx(imageIdx === length - 1 || (imageIdx + slidesToScroll) >= length ? length - 1 : imageIdx + slidesToScroll);
+    }
   }
   const handleIndicatorClick = (idx: number) => {
     setImageIdx(idx);

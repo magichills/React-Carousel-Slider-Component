@@ -20,3 +20,5 @@
 | autoplay         | Boolean             | Optional | Autoplay slides                                                                          | False    |
 | autoplayDuration | Number              | Optional | The duration of each slide in seconds                                                    | 2        |
 | infinite         | Boolean             | Optional | Infinity cycles through the carousel slides                                              | True     |
+| slidesToShow     | Number              | Optional | How many images each slide shows                                                         | 1        |
+| slidesToScroll   | Number              | Optional | How many slides is scrolled on each scroll                                               | 1        |
