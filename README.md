@@ -1,9 +1,12 @@
 # React Carousel Component
 ## Features Currently Implemented
 ### Autoplay
-
+- Option to automatically play the slides of the carousel. 
+- Users can manually set the duration of each slide.
 ### Page Indicators
-
+- Option to turn on and off page indicators for the carousel, displayed at the bottom.
+- Users can change the style from either bullet points or numbered indicators
+- Users can use custom CSS to style the indicators
 
 ## Props
 
