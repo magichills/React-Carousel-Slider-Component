@@ -1,0 +1,68 @@
+.carousel-container {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.icon {
+    position: absolute;
+    top: 50%;
+    font-size: 3rem;
+    color: #000;
+    user-select: none;
+    cursor: pointer;
+    z-index: 10;
+    &.left-arrow{
+        left: 32px;
+    };
+    &.right-arrow{
+        right: 32px;
+    };
+    :hover {
+        color: #424142;
+    };
+    &.indicator {
+        position: relative;
+        top: auto;
+        bottom: 1em;
+        font-size: 1rem;
+        &.active {
+            fill: #000;
+        };
+        :hover {
+            fill: #424142;
+        };
+    };
+}
+
+.button {
+    position: relative;
+    bottom: 1em;
+    cursor: pointer;
+    &.active {
+        background-color: #000;
+        color: #fff;
+    };
+}
+
+.indicator-container {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.slide {
+    opacity: 0;
+    transition-duration:1s ease;
+    &.active {
+        opacity: 1;
+        transition-duration:1s;
+        transform: scale(1.08);
+    }
+}
