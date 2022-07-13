@@ -32,7 +32,9 @@ function App() {
         indicatorType={'number'} // 'circle' or 'number'
         // indicatorStyle={{color: 'red'}}
         startIndex={0}
-        />
+        autoplay={false}
+        autoplayDuration={2}
+      />
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./Carousel.scss";
 import CarouselItem from "./CarouselItem";
 import { BiLeftArrowAlt, BiRightArrowAlt } from "react-icons/bi";
@@ -13,24 +13,43 @@ type CarouselProps = {
   indicatorType?: 'circle' | 'number',
   indicatorStyle?: React.CSSProperties,
   startIndex?: number,
+  autoplay?: boolean,
+  autoplayDuration?: number,
 };
 
-const Carousel = ({images, indicators=false, indicatorType='circle', indicatorStyle, startIndex=0} : CarouselProps) => {
+const Carousel = ({images, indicators=false, indicatorType='circle', indicatorStyle, startIndex=0, autoplay=false, autoplayDuration=2} : CarouselProps) => {
   const [imageIdx, setImageIdx] = useState(startIndex);
   const length = images.length;
-  if (!Array.isArray(images) || length === 0) {
-    return null;
-  }
 
-  const handlePrevSlide = () => {
+  const autoPlayRef = useRef<any>();
+  useEffect(() => {
+    if (autoplay) autoPlayRef.current = handleNextSlide
+  })
+  useEffect(() => {
+    if (autoplay) {
+      const play = () => {
+        autoPlayRef.current()
+      }
+      const interval = setInterval(play, autoplayDuration * 1000)
+      return () => clearInterval(interval)
+    }
+  })
+
+  if (!Array.isArray(images) || length === 0) return null;
+
+  if (startIndex >= length) setImageIdx(0);
+
+  const handlePrevSlide = ():void => {
     setImageIdx(imageIdx === 0 ? length - 1 : imageIdx - 1);
   }
-  const handleNextSlide = () => {
+  const handleNextSlide = ():void => {
     setImageIdx(imageIdx === length - 1 ? 0 : imageIdx + 1);
   }
   const handleIndicatorClick = (idx: number) => {
     setImageIdx(idx);
   }
+
+  
   return (
     <div className="carousel-container">
       <BiLeftArrowAlt className="icon left-arrow" onClick={handlePrevSlide}/>
