@@ -1,5 +1,9 @@
 # React Carousel Component
-## Magic Hills
+## Features Currently Implemented
+### Autoplay
+
+### Page Indicators
+
 
 ## Props
 
