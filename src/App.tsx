@@ -34,9 +34,9 @@ function App() {
         startIndex={0}
         autoplay={false}
         autoplayDuration={2}
-        infinite={true}
+        infinite={false}
         slidesToShow={1}
-        slidesToScroll={1}
+        slidesToScroll={2}
       />
     </div>
   );
