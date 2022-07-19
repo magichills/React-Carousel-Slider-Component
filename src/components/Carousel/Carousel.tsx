@@ -12,7 +12,7 @@ type CarouselItemType = {
   href_target: string,
 }
 type CarouselProps = {
-  slides: Array<CarouselItemType>,
+  slides?: Array<CarouselItemType>,
   indicators?: boolean,
   indicatorType?: 'circle' | 'number',
   indicatorStyle?: React.CSSProperties,
@@ -92,7 +92,7 @@ const Carousel = ({
       <BiLeftArrowAlt className={!infinite && slideIdx === 0 ? "disabled" : "icon left-arrow"} onClick={handlePrevSlide}/>
       <BiRightArrowAlt className={!infinite && slideIdx === length - 1 ? "disabled" : "icon right-arrow"} onClick={handleNextSlide}/>
       <div className="indicator-container">
-        {indicators ? slides.map((_, index) => {
+        {indicators ? [...Array(totalSlides)].map((_, index) => {
           return (
           <Indicator
             indicatorType={indicatorType}
@@ -107,7 +107,10 @@ const Carousel = ({
       </div>
     <div className="carousel"  {...swipeHandlers}>
       <div className="inner" style={{transform: `translateX(-${slideIdx * 100 / slidesToShow}%)`}}>
-          {slides.map((slide, index) => {
+          {React.Children.map(children, (child: any, idx : any) => {
+            return (<div className="carousel-item" style={{width: `${100 / slidesToShow}%`, verticalAlign: 'top', overflow: 'hidden', objectFit: 'cover'}}>{child}</div>);
+          })}
+          {slides && slides.map((slide, index) => {
             return (
                 <div className="carousel-item" style={{width: `${100 / slidesToShow}%`, overflow: 'hidden', objectFit: 'cover'}}>
                   <CarouselItem src={slide.src} alt={slide.alt} href={slide.href} href_target={slide.href_target} key={index} pause={setPaused}/>

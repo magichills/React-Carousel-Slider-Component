@@ -36,8 +36,10 @@ function App() {
   ];
   return (
     <div>
+
       <Carousel 
-        slides={slides}
+        // slides={slides}
+        totalSlides={3}
         indicators={true}
         indicatorType={'number'} // 'circle' or 'number'
         // indicatorStyle={{color: 'red'}}
@@ -45,16 +47,17 @@ function App() {
         autoplay={false}
         autoplayDuration={2}
         infinite={false}
-        slidesToShow={2}
-        slidesToScroll={2}
-        totalSlides={slides.length}
+        slidesToShow={1}
+        slidesToScroll={1}
       >
+        <video height= "500px" width="800px" controls={true}>
+          <source src="https://www.w3schools.com/tags/mov_bbb.mp4" type="video/mp4"></source>
+        </video>
         <div>
           <h1>Hello</h1>
         </div>
-        <div>
-          <h1>Hello</h1>
-        </div>
+        <img src= 'https://images.unsplash.com/photo-1461301214746-1e109215d6d3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80' 
+        alt= 'A picture of a mountain'></img>
       </Carousel>
     </div>
   );
