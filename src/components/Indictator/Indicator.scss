@@ -1,0 +1,29 @@
+.icon {
+    color: #000;
+    user-select: none;
+    cursor: pointer;
+    z-index: 10;
+    &.indicator {
+        position: relative;
+        top: auto;
+        bottom: 1em;
+        font-size: 1rem;
+        &.active {
+            fill: #000;
+        };
+        :hover {
+            fill: #424142;
+        };
+    };
+}
+
+.button {
+    z-index: 10;
+    position: relative;
+    bottom: 1em;
+    cursor: pointer;
+    &.active {
+        background-color: #000;
+        color: #fff;
+    };
+}

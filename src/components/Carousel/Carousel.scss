@@ -1,6 +1,6 @@
 .carousel-container {
     position: relative;
-    height: 100vh;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,37 +16,20 @@
     z-index: 10;
     &.left-arrow{
         left: 32px;
+        @media screen and (max-width: 768px) {
+            display: none;
+        }
     };
     &.right-arrow{
         right: 32px;
+        @media screen and (max-width: 768px) {
+            display: none;
+        }
     };
     :hover {
         color: #424142;
     };
-    &.indicator {
-        position: relative;
-        top: auto;
-        bottom: 1em;
-        font-size: 1rem;
-        &.active {
-            fill: #000;
-        };
-        :hover {
-            fill: #424142;
-        };
-    };
 }
-
-.button {
-    position: relative;
-    bottom: 1em;
-    cursor: pointer;
-    &.active {
-        background-color: #000;
-        color: #fff;
-    };
-}
-
 .indicator-container {
     position: absolute;
     bottom: 0;
@@ -65,4 +48,24 @@
         transition-duration:1s;
         transform: scale(1.08);
     }
+}
+
+.carousel {
+    overflow: hidden;
+}
+
+.inner {
+    white-space: nowrap;
+    transition: transform 0.5s;
+}
+
+.disabled {
+    display: none;
+}
+
+.carousel-item {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
 }
