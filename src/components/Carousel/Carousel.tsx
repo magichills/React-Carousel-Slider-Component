@@ -16,6 +16,7 @@ type CarouselProps = {
   indicators?: boolean,
   indicatorType?: 'circle' | 'number',
   indicatorStyle?: React.CSSProperties,
+  arrowStyle?: React.CSSProperties,
   startIndex?: number,
   autoplay?: boolean,
   autoplayDuration?: number,
@@ -31,6 +32,7 @@ const Carousel = ({
     indicators=false,
     indicatorType='circle',
     indicatorStyle,
+    arrowStyle,
     startIndex=0,
     autoplay=false,
     autoplayDuration=2,
@@ -84,13 +86,11 @@ const Carousel = ({
   const handleIndicatorClick = (idx: number) => {
     setSlideIdx(idx);
   }
+
   return (
     <div className="carousel-container">
-      {/* {React.Children.map(children, (child: any, idx : any) => {
-        return (<div>{child}</div>);
-      })} */}
-      <BiLeftArrowAlt className={!infinite && slideIdx === 0 ? "disabled" : "icon left-arrow"} onClick={handlePrevSlide}/>
-      <BiRightArrowAlt className={!infinite && slideIdx === length - 1 ? "disabled" : "icon right-arrow"} onClick={handleNextSlide}/>
+      <BiLeftArrowAlt className={!infinite && slideIdx === 0 ? "disabled" : "icon left-arrow"} style={arrowStyle} onClick={handlePrevSlide}/>
+      <BiRightArrowAlt className={!infinite && slideIdx === length - 1 ? "disabled" : "icon right-arrow"} style={arrowStyle} onClick={handleNextSlide}/>
       <div className="indicator-container">
         {indicators ? [...Array(totalSlides)].map((_, index) => {
           return (
@@ -107,8 +107,9 @@ const Carousel = ({
       </div>
     <div className="carousel"  {...swipeHandlers}>
       <div className="inner" style={{transform: `translateX(-${slideIdx * 100 / slidesToShow}%)`}}>
-          {React.Children.map(children, (child: any, idx : any) => {
-            return (<div className="carousel-item" style={{width: `${100 / slidesToShow}%`, verticalAlign: 'top', overflow: 'hidden', objectFit: 'cover'}}>{child}</div>);
+          
+          {!slides && React.Children.map(children, (child: any, idx : any) => {
+            return (<div className="carousel-item" style={{width: `${100 / slidesToShow}%`, verticalAlign: "middle", overflow: "hidden", objectFit: "cover",}}>{child}</div>);
           })}
           {slides && slides.map((slide, index) => {
             return (

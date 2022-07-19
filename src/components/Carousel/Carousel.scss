@@ -1,6 +1,6 @@
 .carousel-container {
     position: relative;
-    height: 100vh;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,9 +16,15 @@
     z-index: 10;
     &.left-arrow{
         left: 32px;
+        @media screen and (max-width: 768px) {
+            display: none;
+        }
     };
     &.right-arrow{
         right: 32px;
+        @media screen and (max-width: 768px) {
+            display: none;
+        }
     };
     :hover {
         color: #424142;
@@ -61,5 +67,5 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    height: 80vh;
+    vertical-align: middle;
 }
