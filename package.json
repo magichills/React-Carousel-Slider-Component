@@ -1,7 +1,7 @@
 {
-  "name": "my-app",
-  "version": "0.1.0",
-  "private": true,
+  "name": "react-carousel-slider-component",
+  "version": "1.0.3",
+  "private": false,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
@@ -42,5 +42,24 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "license": "MIT",
+  "description": "- [Features](##Features)\r - [Props](##Props)\r - [Examples](##Examples)",
+  "main": "index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/magichills/React-Carousel-Slider-Component.git"
+  },
+  "keywords": [
+    "react",
+    "slider",
+    "carousel",
+    "component"
+  ],
+  "author": "magichills",
+  "bugs": {
+    "url": "https://github.com/magichills/React-Carousel-Slider-Component/issues"
+  },
+  "homepage": "https://github.com/magichills/React-Carousel-Slider-Component#readme"
 }

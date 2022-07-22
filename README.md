@@ -1,4 +1,4 @@
-# React Carousel Component
+# React Carousel Slider Component
 
 ## Table of Contents
 
