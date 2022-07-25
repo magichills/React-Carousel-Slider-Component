@@ -140,15 +140,6 @@ function App() {
                 slidesToShow={1}
                 slidesToScroll={1}
             >
-                <video height= "500px" width="" controls={true}>
-                <source src="https://www.w3schools.com/tags/mov_bbb.mp4" type="video/mp4"></source>
-                </video>
-                <div>
-                <h1>Hello</h1>
-                <p>This is a test</p>
-                </div>
-                <img src= 'https://images.unsplash.com/photo-1461301214746-1e109215d6d3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80' 
-                alt= 'A picture of a mountain'></img>
             </Carousel>
             </div>
         </div>

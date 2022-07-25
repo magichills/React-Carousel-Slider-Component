@@ -1,6 +1,6 @@
 {
   "name": "react-carousel-slider-component",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "private": false,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
@@ -22,7 +22,7 @@
   "scripts": {
     "clean": "rimraf dist/",
     "copy-files": "copyfiles -u 1 lib/css/*.css dist/",
-    "build": "npm run clean && tsc && npm run copy-files"
+    "build": "npm run clean && set GENERATE_SOURCEMAP=false && tsc && npm run copy-files "
   },
   "eslintConfig": {
     "extends": [
