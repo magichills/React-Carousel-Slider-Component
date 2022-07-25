@@ -1,6 +1,6 @@
 {
   "name": "react-carousel-slider-component",
-  "version": "1.0.3",
+  "version": "1.0.9",
   "private": false,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
@@ -20,10 +20,9 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "clean": "rimraf dist/",
+    "copy-files": "copyfiles -u 1 lib/css/*.css dist/",
+    "build": "npm run clean && tsc && npm run copy-files"
   },
   "eslintConfig": {
     "extends": [
@@ -44,9 +43,13 @@
     ]
   },
   "license": "MIT",
-  "description": "- [Features](##Features)\r - [Props](##Props)\r - [Examples](##Examples)",
-  "main": "index.js",
-  "devDependencies": {},
+  "description": "React Carousel Slider Component",
+  "main": "dist/index",
+  "types": "dist/index.d.ts",
+  "devDependencies": {
+    "copyfiles": "^2.4.1",
+    "rimraf": "^3.0.2"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/magichills/React-Carousel-Slider-Component.git"

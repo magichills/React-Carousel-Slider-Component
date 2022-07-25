@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import "./Carousel.scss";
+import "./../../css/Carousel.css";
 import CarouselItem from "./../CarouselItem/CarouselItem";
 import Indicator from "../Indictator/Indicator";
 import { BiLeftArrowAlt, BiRightArrowAlt } from "react-icons/bi";

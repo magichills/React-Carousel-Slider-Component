@@ -1,5 +1,5 @@
 import React from 'react'
-import './Indicator.scss'
+import "./../../css/Indicator.css"
 import { FiCircle } from 'react-icons/fi'
 
 type IndicatorProps = {

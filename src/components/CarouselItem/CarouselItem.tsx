@@ -1,5 +1,5 @@
 import React from 'react'
-import "./CarouselItem.scss"
+import "./../../css/CarouselItem.css";
 
 type ItemProps = {
     src: string,

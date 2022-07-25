@@ -2,9 +2,31 @@
 
 ## Table of Contents
 
+- [Installation](##Installation)
 - [Features](##Features)
 - [Props](##Props)
 - [Examples](##Examples)
+
+## Installation
+First install the module via npm:
+
+```bash
+npm install react-carousel-slider-component
+```
+
+Then import the module:
+
+```jsx
+import React from 'react';
+import { Carousel } from 'react-carousel-slider-component';
+
+function App() {
+    return (
+        <Carousel>
+        </Carousel>
+    )
+}
+```
 
 ## Features
 

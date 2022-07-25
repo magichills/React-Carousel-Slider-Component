@@ -1,1 +1,0 @@
-export { default as Carousel } from './src/components/Carousel/Carousel';

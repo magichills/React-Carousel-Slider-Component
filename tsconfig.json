@@ -6,6 +6,7 @@
       "dom.iterable",
       "esnext"
     ],
+    "declaration": true,
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -17,10 +18,8 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "outDir": "./dist",
   },
-  "include": [
-    "src"
-, "index.js"  ]
+  "include": ["./src/**/*.ts", "./src/**/*.tsx"],
 }
