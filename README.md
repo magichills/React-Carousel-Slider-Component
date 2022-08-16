@@ -2,11 +2,11 @@
 
 ## Table of Contents
 
-- [Demo](##Demo)
-- [Installation](##Installation)
-- [Features](##Features)
-- [Props](##Props)
-- [Examples](##Examples)
+- [Demo](#Demo)
+- [Installation](#Installation)
+- [Features](#Features)
+- [Props](#Props)
+- [Examples](#Examples)
 
 ## Demo
 
