@@ -2,15 +2,10 @@
 
 ## Table of Contents
 
-- [Demo](#Demo)
 - [Installation](#Installation)
 - [Features](#Features)
 - [Props](#Props)
 - [Examples](#Examples)
-
-## Demo
-
-[React Carousel Slider Online Demo](http://h5box.com)
 
 ## Installation
 First install the module via npm:
